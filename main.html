@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{
+			background-color: #0d0d0d;
+			background-size: cover;
+		}
+		.lotus{
+			position: absolute;
+		}
+		@keyframes xxs {
+			from{top: 150px;} to{top: 160px;}}
+
+		@keyframes xs {
+			from{top: 180px;} to{top: 195px;}}
+
+		@keyframes s {
+			from{top: 220px;} to{top: 200px;}}
+
+		@keyframes m {
+			from{top: 250px;} to{top: 280px;}}
+
+		@keyframes l {
+			from{top: 300px;} to{top: 350px;}}
+
+		@keyframes xl {
+			from{top: 380px;} to{top: 440px;}}
+
+		@keyframes xxl {
+			from{top: 550px;} to{top: 480px;}}	
+
+		@keyframes float {
+			to{top: -1000px;}}		
+	</style>
+</head>
+<body>
+	
+	<script type="text/javascript">
+
+	var a = ["lotus1","lotus2","lotus3","lotus4","lotus5","lotus6","lotus7"];
+
+	for(var i=0;i<15;i++){
+		var t = document.createElement("img");
+		t.src = a[randomBH(0,6)] + ".png";
+		t.className = "lotus";
+
+		var size = randomBH(50,260);
+		t.style.width = size + "px";
+		t.style.zIndex = size;
+		t.style.height = "auto";
+
+		//xxs:50-80, xs:80-110, s:110-140, m:140-170, l:170-200, xl:200-230, xxl:230-260
+		if(size < 80){
+			var b = 1.5 + Math.random();
+			t.style.animation = "xxs " + b + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 80 && size < 110){
+			var c = 2 + Math.random();
+			t.style.animation = "xs" + c + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 110 && size < 140){
+			var d = 2.5 + Math.random();
+			t.style.animation = "s" + d + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 140 && size < 170){
+			var e = 3 + Math.random();
+			t.style.animation = "m" + e + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 170 && size < 200){
+			var f = 3.5 + Math.random();
+			t.style.animation = "l" + f + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 200 && size < 230){
+			var g = 4 + Math.random();
+			t.style.animation = "xl" + g + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}
+		if(size >= 230){
+			var h = 4.5 + Math.random();
+			t.style.animation = "xxl" + h + "s ease-in-out infinite alternate";
+			t.style.animationDelay = Math.random() + "s";
+			}	
+		t.onclick = function(){
+		t.style.animation = "float 3s forwards";}
+
+		t.style.left = Math.random()*screen.availWidth + "px";
+		t.style.top = Math.random()*screen.availWidth + "px";
+		document.body.appendChild(t);
+		}	
+
+		function randomBH(min, max) {
+		  min = Math.ceil(min);
+		  max = Math.floor(max);
+		  return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+	</script>
+</body>
+</html>
